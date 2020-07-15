@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style></style>
-</head>
-<body>
-  <script src="script.js"></script> 
-</body>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Spider-Man Trivia</title>
+		<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="./style.css" />
+        <script src="script.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="title"><span>The Spider-Man Amazing Trivia Game</span></div>
+		</header>
+		<main>
+        <aside>
+				<p id="name"><form action="/action_page.php">
+  <label for="username">Player name: </label>
+  <input type="text" id="player" name="playername"><br>
+  <input type="submit" value="Submit">
+</form></p>
+                <p>Score: <span id="points"></span></p>
+                <img class="spidey-phone" src="spidey_phone.gif" alt="Spidey phone">
+                <img class="spidey-computer" src="spiderman-computer.jpg" alt="Spidey computer">
+			</aside>
+			<article>
+				<section id="quiz">
+                </section>
+			</article>
+		</main>
+		<footer id="message">
+        <p></p>
+		</footer>
+	</body>
+
 </html>
