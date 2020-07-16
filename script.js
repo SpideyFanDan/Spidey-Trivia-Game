@@ -139,16 +139,32 @@ var questions = [
 function trivia(obj) {
 	return document.getElementById(obj);
 }
+// function startGame() {
+// 	document.querySelector('form').style.display = 'block';
+// }
+const submitName = document.querySelector('#button');
+submitName.addEventListener('click', handlePlayerNameSubmit);
+
+function handlePlayerNameSubmit(event) {
+	event.preventDefault();
+	playerName = document.querySelector('.start-trivia-input').value;
+	const nameSubmission = document.querySelector('#player-name');
+	nameSubmission.innerText = playerName;
+	document.querySelector('.start-trivia-input').value = '';
+	document.querySelector('form').style.display = 'none';
+	renderQuestion();
+}
+
 function renderQuestion() {
 	quiz = trivia('quiz');
 	if (position >= questions.length) {
 		trivia('message').innerText =
 			'You got ' + correct + ' of ' + questions.length + ' questions correct';
 		trivia('quiz_progress').innerHTML = 'You answered them all!';
-		position = 0;
-		correct = 0;
-		// enterName();
-		return false;
+        position = 0;
+        correct = 0;
+        return false;
+        // startGame();
 	}
 	question = questions[position][0];
 	choiceA = questions[position][1];
@@ -157,19 +173,19 @@ function renderQuestion() {
 	choiceD = questions[position][4];
 	quiz.innerHTML = "<p id='question'>" + question + '</p>';
 	quiz.innerHTML +=
-		"<label for='A'><input type='radio' name='choices' id='choiceA' value='A'> A) " +
+		"<label for='A'><input type='radio' name='choices' class='answer_choices' id='choiceA' value='A'> A) " +
 		choiceA +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='B'><input type='radio' name='choices' id='choiceB' value='B'> B) " +
+		"<label for='B'><input type='radio' name='choices' class='answer_choices' id='choiceB' value='B'> B) " +
 		choiceB +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='C'><input type='radio' name='choices' id='choiceC' value='C'> C) " +
+		"<label for='C'><input type='radio' name='choices' class='answer_choices' id='choiceC' value='C'> C) " +
 		choiceC +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='D'><input type='radio' name='choices' id='choiceD' value='D'> D) " +
+		"<label for='D'><input type='radio' name='choices' class='answer_choices' id='choiceD' value='D'> D) " +
 		choiceD +
 		'</label><br><br>';
 	quiz.innerHTML +=
@@ -191,14 +207,15 @@ function checkAnswer() {
 	if (choice == questions[position][5]) {
 		correct++;
 		trivia('points').innerText = correct + '/' + (position + 1);
-		message.innerText = 'Well done, Dan!';
+		message.innerText = 'Well done, ' + playerName + '!';
 		websling.play();
 	} else {
-		message.innerText = 'You missed that last one!';
+		message.innerText =
+			'Sorry, ' + playerName + 'but you missed that last one!';
 		nope.play();
 	}
 	position++;
 	renderQuestion();
 }
-// window.addEventListener('click', enterName, false);
-// window.addEventListener('load', renderQuestion, false);
+
+// window.addEventListener('load', startGame, false);
