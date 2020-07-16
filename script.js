@@ -13,7 +13,7 @@ var websling = new Audio();
 websling.src = 'media/websling.mp3';
 var nope = new Audio();
 var triviaGame = new Image();
-triviaGame.src = "media/trivia_game.jpg"
+triviaGame.src = 'media/trivia_game.jpg';
 nope.src = 'media/nope.mp3';
 var questions = [
 	['What year was Spider-Man created?', '1962', '1975', '1931', '2000', 'A'],
@@ -132,8 +132,7 @@ var questions = [
 ];
 
 //function enterName() {
-// on load article shows Spider-Man Quiz jpeg
-// if name is submitted, then renderQuestion() begins
+// if name is submitted, then renderQuestion() begins onclick
 // position = 0
 // correct = 0
 //}
