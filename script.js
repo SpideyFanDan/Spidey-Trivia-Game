@@ -9,7 +9,9 @@ var choiceD;
 var correctAnswer;
 var correct = 0;
 var playerName;
+var correctSound;
 var questions = [
+	['What year was Spider-Man created?', '1962', '1975', '1931', '2000', 'A'],
 	[
 		'Spider-Man was NOT an alter ego of which person below?',
 		'Peter Parker',
@@ -59,6 +61,14 @@ var questions = [
 		'A',
 	],
 	[
+		"What is Peter Parker's clone's alias (superhero name)?",
+		'Spider-Man too',
+		'Clone Spider',
+		'Spider-bot',
+		'Scarlet Spider',
+		'D',
+	],
+	[
 		'In the comics, which is NOT a job held by Peter Parker',
 		'Photographer for the Daily Bugle',
 		'CEO and Owner of Parker Industries',
@@ -75,6 +85,14 @@ var questions = [
 		'B',
 	],
 	[
+		'How many extra arms did Peter Parker grow when he created a chemical cocktail to get rid of his powers in Amazing Spider-Man Vol. 1 issues 100-102?',
+		'2',
+		'4',
+		'6',
+		'8',
+		'B',
+	],
+	[
 		'When did Peter Parker and Mary Jane get married in the comics?',
 		'1965',
 		'1978',
@@ -88,6 +106,22 @@ var questions = [
 		'The Preacher',
 		'Mephisto',
 		'Mayor J. Jonah Jameson',
+		'C',
+	],
+	[
+		"Which Spider-Man villain was his Aunt May's supervisor at the organization she volunteered at?",
+		'Mister Negative',
+		'Green Goblin',
+		'Electro',
+		'The Tinkerer',
+		'A',
+	],
+	[
+		'How many live-action Spider-Man films have been made by Sony(and Sony/Marvel partnership) since 2002?',
+		'3',
+		'5',
+		'7',
+		'9',
 		'C',
 	],
 ];
@@ -119,19 +153,19 @@ function renderQuestion() {
 	choiceD = questions[position][4];
 	quiz.innerHTML = "<p id='question'>" + question + '</p>';
 	quiz.innerHTML +=
-		"<input type='radio' name='choices' id='choiceA' value='A'><label for='A'> A) " +
+		"<label for='A'><input type='radio' name='choices' id='choiceA' value='A'> A) " +
 		choiceA +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<input type='radio' name='choices' id='choiceA' value='B'><label for='B'> B) " +
+		"<label for='B'><input type='radio' name='choices' id='choiceB' value='B'> B) " +
 		choiceB +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<input type='radio' name='choices' id='choiceA' value='C'><label for='C'> C) " +
+		"<label for='C'><input type='radio' name='choices' id='choiceC' value='C'> C) " +
 		choiceC +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<input type='radio' name='choices' id='choiceA' value='D'><label for='D'> D) " +
+		"<label for='D'><input type='radio' name='choices' id='choiceD' value='D'> D) " +
 		choiceD +
 		'</label><br><br>';
 	quiz.innerHTML +=
@@ -152,7 +186,7 @@ function checkAnswer() {
 	}
 	if (choice == questions[position][5]) {
 		correct++;
-		trivia('points').innerText = correct + '/10';
+		trivia('points').innerText = correct + '/' + (position + 1);
 		message.innerText = 'Well done, Dan!';
 	} else {
 		message.innerText = 'You missed that last one!';
