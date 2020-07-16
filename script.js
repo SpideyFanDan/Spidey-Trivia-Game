@@ -131,17 +131,14 @@ var questions = [
 	],
 ];
 
-//function enterName() {
-// if name is submitted, then renderQuestion() begins onclick
-// position = 0
-// correct = 0
-//}
 function trivia(obj) {
 	return document.getElementById(obj);
 }
-// function startGame() {
-// 	document.querySelector('form').style.display = 'block';
-// }
+function startGame() {
+	document.querySelector('form').style.display = 'block';
+	position = 0;
+	correct = 0;
+}
 const submitName = document.querySelector('#button');
 submitName.addEventListener('click', handlePlayerNameSubmit);
 
@@ -159,12 +156,16 @@ function renderQuestion() {
 	quiz = trivia('quiz');
 	if (position >= questions.length) {
 		trivia('message').innerText =
-			'You got ' + correct + ' of ' + questions.length + ' questions correct';
-		trivia('quiz_progress').innerHTML = 'You answered them all!';
-        position = 0;
-        correct = 0;
-        return false;
-        // startGame();
+			playerName +
+			', you got ' +
+			correct +
+			' of ' +
+			questions.length +
+			' questions correct';
+		trivia('quiz_progress').innerHTML = playerName + ', you answered them all!';
+		position = 0;
+		correct = 0;
+		return startGame();
 	}
 	question = questions[position][0];
 	choiceA = questions[position][1];
@@ -211,11 +212,9 @@ function checkAnswer() {
 		websling.play();
 	} else {
 		message.innerText =
-			'Sorry, ' + playerName + 'but you missed that last one!';
+			'Sorry, ' + playerName + ', but you missed that last one!';
 		nope.play();
 	}
 	position++;
 	renderQuestion();
 }
-
-// window.addEventListener('load', startGame, false);

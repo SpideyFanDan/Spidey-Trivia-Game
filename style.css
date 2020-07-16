@@ -52,8 +52,36 @@ article {
 .spidey-computer {
 	display: none;
 }
-
-.answer_choices {
+#player {
+    font-family: 'Comic Neue', cursive;
+	width: 75%;
+	color: rgb(128, 0, 0);
+	border: 3px solid gray;
+	border-radius: 5px;
+	margin: 1rem;
+    font-size: 24px;
+}
+#button {
+	font-family: 'Comic Neue', cursive;
+	width: 50%;
+	color: rgb(128, 0, 0);
+	border: 3px solid gray;
+	border-radius: 15px;
+	margin: 1rem;
+    font-size: 24px;
+    text-align: center;
+}
+#submit {
+    font-family: 'Comic Neue', cursive;
+	width: 50%;
+	color: rgb(128, 0, 0);
+	border: 3px solid gray;
+	border-radius: 15px;
+	margin: 1rem;
+    font-size: 24px;
+    text-align: center;
+}
+/* .answer_choices {
 	display: inline-block;
 	width: 12px;
 	height: 12px;
@@ -62,7 +90,7 @@ article {
 	border-radius: 1px;
 	transition: background 0.2s linear;
 	cursor: pointer;
-}
+} */
 @media (min-width: 500px) {
 	header {
 		flex-direction: row;
@@ -86,15 +114,15 @@ article {
 		font-size: 36px;
 		padding: 50px;
 	}
-	button {
-		font-size: 32px;
-	}
 	#trivia-game {
 		display: inline-flex;
 		max-width: 100%;
 		height: 500px;
 		object-fit: contain;
-	}
+    }
+    #button {
+        font-size: 24px;;
+    }
 	.spidey-computer {
 		display: flex;
 		max-width: 100%;
@@ -129,15 +157,6 @@ footer {
 	box-sizing: border-box;
 }
 
-button {
-	font-family: 'Comic Neue', cursive;
-	width: 35%;
-	color: rgb(128, 0, 0);
-	border: 3px solid gray;
-	border-radius: 15px;
-	margin: 1rem;
-	font-size: 18px;
-}
 button:hover {
 	cursor: pointer;
 	background-color: rgb(248, 248, 117);
