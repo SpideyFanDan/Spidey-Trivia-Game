@@ -10,9 +10,11 @@ var correctAnswer;
 var correct = 0;
 var playerName;
 var websling = new Audio();
-websling.src = "media/websling.mp3";
+websling.src = 'media/websling.mp3';
 var nope = new Audio();
-nope.src = "media/nope.mp3";
+var triviaGame = new Image();
+triviaGame.src = "media/trivia_game.jpg"
+nope.src = 'media/nope.mp3';
 var questions = [
 	['What year was Spider-Man created?', '1962', '1975', '1931', '2000', 'A'],
 	[
@@ -190,19 +192,14 @@ function checkAnswer() {
 	if (choice == questions[position][5]) {
 		correct++;
 		trivia('points').innerText = correct + '/' + (position + 1);
-        message.innerText = 'Well done, Dan!';
-        websling.play();
+		message.innerText = 'Well done, Dan!';
+		websling.play();
 	} else {
-        message.innerText = 'You missed that last one!';
-        nope.play();
+		message.innerText = 'You missed that last one!';
+		nope.play();
 	}
-	// playSound (ding)
-	// else {
-	// playSound (bonk)
-	//
-	// }
 	position++;
 	renderQuestion();
 }
 // window.addEventListener('click', enterName, false);
-window.addEventListener('load', renderQuestion, false);
+// window.addEventListener('load', renderQuestion, false);
