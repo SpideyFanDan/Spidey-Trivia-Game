@@ -61,9 +61,9 @@ article {
 	margin: 1rem;
     font-size: 24px;
 }
-#button {
+.button {
 	font-family: 'Comic Neue', cursive;
-	width: 50%;
+	width: 80%;
 	color: rgb(128, 0, 0);
 	border: 3px solid gray;
 	border-radius: 15px;
@@ -121,7 +121,7 @@ article {
 		object-fit: contain;
     }
     #button {
-        font-size: 24px;;
+        font-size: 20px;;
     }
 	.spidey-computer {
 		display: flex;
