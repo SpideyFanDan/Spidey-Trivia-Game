@@ -166,7 +166,7 @@ var easyQuestions = [
 		'C',
 	],
 	[
-		'How does the original Peter Parker get his Amazing Spider-Man powers?',
+		'How does the original Peter Parker get his amazing spider-like powers?',
 		'He was bit by a genetically altered tarantula',
 		'He was bit by a radioactive spider',
 		'He was bit by a sentient spider from outer space',
@@ -176,7 +176,7 @@ var easyQuestions = [
 	[
 		"What is the name of Peter Parker's uncle who was killed by a burglar invading his home?",
 		'Ben Parker',
-		'May Parker',
+		'Mark Parker',
 		'Harry Parker',
 		'John Parker',
 		'A',
@@ -206,7 +206,7 @@ var easyQuestions = [
 		'B',
 	],
 	[
-		"Who killed Peter Parker's first major girlfriend in <em>The Amazing Spider-Man</em> issue #121?",
+		"Who killed Peter Parker's first major girlfriend, Gwen Stacy, in <em>The Amazing Spider-Man</em> issue #121?",
 		'The Rhino',
 		'The Green Goblin',
 		'The Jackal',
@@ -214,7 +214,7 @@ var easyQuestions = [
 		'B',
 	],
 	[
-		'Which scientist turned villain did Spider-Man help to return to his human state in <em>The Amazing Spider-Man</em> issue #6?',
+		'Which herpetologist turned villain did Spider-Man help to return to his human state in <em>The Amazing Spider-Man</em> issue #6?',
 		'Slapstick',
 		'Chameleon',
 		'The Lizard',
@@ -226,9 +226,7 @@ function trivia(obj) {
 	return document.getElementById(obj);
 }
 function startGame() {
-	document.querySelector('form').style.display = 'block';
-	position = 0;
-	correct = 0;
+	location.reload();
 }
 const submitHard = document.querySelector('#hard-button');
 const submitEasy = document.querySelector('#easy-button');
@@ -240,6 +238,10 @@ function handleHardTrivia(event) {
 	playerName = document.querySelector('.start-trivia-input').value;
 	const nameSubmission = document.querySelector('#player-name');
 	nameSubmission.innerText = playerName;
+	if (playerName == 0) {
+		nameSubmission.innerText = 'Anonymous';
+		playerName = 'Anonymous';
+	}
 	document.querySelector('.start-trivia-input').value = '';
 	document.querySelector('form').style.display = 'none';
 	renderHardQuestion();
@@ -265,12 +267,13 @@ function renderHardQuestion() {
 			' of ' +
 			questions.length +
 			' questions correct!';
+		document.getElementById('quiz').style.backgroundImage +=
+			"url('media/spidey-background.jpg')";
+		quiz.innerHTML +=
+			"<button id='submit' onClick='startGame()'>Start Over</button>";
 		trivia('message').innerText =
 			playerName +
-			', you answered them all! If you would like to try the trivia game again or try the other game, just enter your name above and click on the trivia game you would like to do';
-		position = 0;
-		correct = 0;
-		return startGame();
+			', you answered them all! If you would like to try the trivia game again or try the other trivia questions, just click on the Start Over button above.';
 	}
 	question = questions[position][0];
 	choiceA = questions[position][1];
@@ -307,17 +310,21 @@ function renderHardQuestion() {
 function renderEasyQuestion() {
 	quiz = trivia('quiz');
 	if (position >= easyQuestions.length) {
-		trivia('message').innerText =
+		quiz.innerHTML =
+			'Congratulations, ' +
 			playerName +
 			', you got ' +
 			correct +
 			' of ' +
 			easyQuestions.length +
-			' questions correct';
-		trivia('quiz_progress').innerHTML = playerName + ', you answered them all!';
-		position = 0;
-		correct = 0;
-		return startGame();
+			' questions correct!';
+		document.getElementById('quiz-background').style.backgroundImage +=
+			"url('media/spidey-background.jpg')";
+		quiz.innerHTML +=
+			"<button id='submit' onClick='startGame()'>Start Over</button>";
+		trivia('message').innerText =
+			playerName +
+			', you answered them all! If you would like to try the trivia game again or try the other trivia questions, just click on the Start Over button above.';
 	}
 	question = easyQuestions[position][0];
 	choiceA = easyQuestions[position][1];
@@ -360,7 +367,7 @@ function checkHardAnswer() {
 	}
 	if (choice == questions[position][5]) {
 		correct++;
-		trivia('points').innerText = correct + '/' + (position + 1);
+		trivia('points').innerText = correct + '/' + questions.length;
 		message.innerText = 'Well done, ' + playerName + '!';
 		websling.play();
 	} else {
@@ -380,7 +387,7 @@ function checkEasyAnswer() {
 	}
 	if (choice == easyQuestions[position][5]) {
 		correct++;
-		trivia('points').innerText = correct + '/' + (position + 1);
+		trivia('points').innerText = correct + '/' + easyQuestions.length;
 		message.innerText = 'Well done, ' + playerName + '!';
 		websling.play();
 	} else {
