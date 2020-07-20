@@ -251,6 +251,10 @@ function handleEasyTrivia(event) {
 	playerName = document.querySelector('.start-trivia-input').value;
 	const nameSubmission = document.querySelector('#player-name');
 	nameSubmission.innerText = playerName;
+	if (playerName == 0) {
+		nameSubmission.innerText = 'Anonymous';
+		playerName = 'Anonymous';
+	}
 	document.querySelector('.start-trivia-input').value = '';
 	document.querySelector('form').style.display = 'none';
 	renderEasyQuestion();
@@ -282,19 +286,19 @@ function renderHardQuestion() {
 	choiceD = questions[position][4];
 	quiz.innerHTML = "<p id='question'>" + question + '</p>';
 	quiz.innerHTML +=
-		"<label for='A'><input type='radio' name='choices' class='answer_choices' id='choiceA' value='A'> A) " +
+		"<input type='radio' name='choices' class='answer_choices' id='choiceA' value='A'><label for='choiceA'> A) " +
 		choiceA +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='B'><input type='radio' name='choices' class='answer_choices' id='choiceB' value='B'> B) " +
+		"<input type='radio' name='choices' class='answer_choices' id='choiceB' value='B'><label for='choiceB'> B) " +
 		choiceB +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='C'><input type='radio' name='choices' class='answer_choices' id='choiceC' value='C'> C) " +
+		"<input type='radio' name='choices' class='answer_choices' id='choiceC' value='C'><label for='choiceC'> C) " +
 		choiceC +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='D'><input type='radio' name='choices' class='answer_choices' id='choiceD' value='D'> D) " +
+		"<input type='radio' name='choices' class='answer_choices' id='choiceD' value='D'><label for='choiceD'> D) " +
 		choiceD +
 		'</label><br><br>';
 	quiz.innerHTML +=
@@ -333,19 +337,19 @@ function renderEasyQuestion() {
 	choiceD = easyQuestions[position][4];
 	quiz.innerHTML = "<p id='question'>" + question + '</p>';
 	quiz.innerHTML +=
-		"<label for='A'><input type='radio' name='choices' class='answer_choices' id='choiceA' value='A'> A) " +
+		"<input type='radio' name='choices' class='answer_choices' id='choiceA' value='A'><label for='choiceA'> A) " +
 		choiceA +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='B'><input type='radio' name='choices' class='answer_choices' id='choiceB' value='B'> B) " +
+		"<input type='radio' name='choices' class='answer_choices' id='choiceB' value='B'><label for='choiceB'> B) " +
 		choiceB +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='C'><input type='radio' name='choices' class='answer_choices' id='choiceC' value='C'> C) " +
+		"<input type='radio' name='choices' class='answer_choices' id='choiceC' value='C'><label for='choiceC'> C) " +
 		choiceC +
 		'</label><br><br>';
 	quiz.innerHTML +=
-		"<label for='D'><input type='radio' name='choices' class='answer_choices' id='choiceD' value='D'> D) " +
+		"<input type='radio' name='choices' class='answer_choices' id='choiceD' value='D'><label for='choiceD'> D) " +
 		choiceD +
 		'</label><br><br>';
 	quiz.innerHTML +=
