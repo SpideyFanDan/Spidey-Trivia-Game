@@ -24,7 +24,7 @@ How does the project stack up to the requirements for this project? Is the devel
 
 Is the application easy to navigate? Does it work well in every major browser? Is it responsive? Does it incorporate modern UI Themes?
 
-- Your app looks really cool! I thought the overall design, especially the modal, was neat and creative. Your love for Spiderman is apparent :)
+- Your app looks really cool! I thought the overall design was neat and creative. Your love for Spiderman is apparent :)
 
 ## Functionality
 
