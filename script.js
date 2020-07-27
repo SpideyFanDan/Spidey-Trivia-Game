@@ -1,3 +1,8 @@
+// Hou comment: use let or const instead of var.
+// var has some strange behaviors: https://blog.usejournal.com/awesome-javascript-no-more-var-working-title-999428999994
+// You'll see var being used in legacy codebases but generally we stick with let/const in modern web development.
+
+// Hou comment: consider adding a few comments to describe the purpose of the variables below
 var position = 0;
 var quiz;
 var question;
@@ -9,12 +14,23 @@ var choiceD;
 var correctAnswer;
 var correct = 0;
 var playerName;
+// Hou comment: nice job figuring out how to use the Audio API!
 var websling = new Audio();
 websling.src = 'media/websling.mp3';
 var nope = new Audio();
 var triviaGame = new Image();
 triviaGame.src = 'media/trivia_game.jpg';
 nope.src = 'media/nope.mp3';
+
+// Hou comment: A better data structure would be to use an array of objects:
+// const questions = [
+// 	{
+// 		question: 'What year was Spider-Man created?',
+// 		choices: ['1962', '1975', '1931', '2000'],
+// 		answer: ['1962']
+// 	},
+// 	...
+// ]
 var questions = [
 	['What year was Spider-Man created?', '1962', '1975', '1931', '2000', 'A'],
 	[
@@ -131,17 +147,19 @@ var questions = [
 	],
 ];
 
+// Hou comment: great idea! How can lines 161 and 166 make use of this function?
 function trivia(obj) {
 	return document.getElementById(obj);
 }
+
 function startGame() {
 	document.querySelector('form').style.display = 'block';
 	position = 0;
 	correct = 0;
 }
+
 const submitName = document.querySelector('#button');
 submitName.addEventListener('click', handlePlayerNameSubmit);
-
 function handlePlayerNameSubmit(event) {
 	event.preventDefault();
 	playerName = document.querySelector('.start-trivia-input').value;
@@ -173,6 +191,7 @@ function renderQuestion() {
 	choiceC = questions[position][3];
 	choiceD = questions[position][4];
 	quiz.innerHTML = "<p id='question'>" + question + '</p>';
+	// Hou comment: how would you create a helper function to reuse the logic on lines 194-209?
 	quiz.innerHTML +=
 		"<label for='A'><input type='radio' name='choices' class='answer_choices' id='choiceA' value='A'> A) " +
 		choiceA +
@@ -198,6 +217,7 @@ function renderQuestion() {
 		questions.length;
 	('</p>');
 }
+
 function checkAnswer() {
 	choices = document.getElementsByName('choices');
 	for (let i = 0; i < choices.length; i++) {
