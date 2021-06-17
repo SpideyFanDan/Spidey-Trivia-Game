@@ -12,9 +12,9 @@ Trivia (Self-scoring)
 ## Wire Frames
 
 **Initial Landing View**
-(proposal/Spidey initial template.jpg)
+![initial template wire frame](proposal/Spidey%20Answer%20page%20template.jpg)
 **Stretch Goals Views**
-(proposal/Spidey Stretch template.jpg)
+![stretch goals template wire frame](proposal/Spidey%20Stretch%20template.jpg)
 ## User Stories
 
 #### MVP Goals
