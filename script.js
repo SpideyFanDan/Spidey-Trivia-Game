@@ -273,7 +273,7 @@ function renderHardQuestion() {
 			' of ' +
 			questions.length +
 			' questions correct!';
-		document.getElementById('quiz').style.backgroundImage +=
+		document.getElementById('quiz-background').style.backgroundImage +=
 			"url('media/spidey-background.jpg')";
 		quiz.innerHTML +=
 			"<button id='submit' onClick='startGame()'>Start Over</button>";
