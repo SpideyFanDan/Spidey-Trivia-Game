@@ -244,6 +244,7 @@ function handleHardTrivia(event) {
 	}
 	document.querySelector('.start-trivia-input').value = '';
 	document.querySelector('form').style.display = 'none';
+	trivia('message').innerText = 'Welcome, ' + playerName;
 	renderHardQuestion();
 }
 function handleEasyTrivia(event) {
@@ -257,6 +258,7 @@ function handleEasyTrivia(event) {
 	}
 	document.querySelector('.start-trivia-input').value = '';
 	document.querySelector('form').style.display = 'none';
+	trivia('message').innerText = 'Welcome, ' + playerName;
 	renderEasyQuestion();
 }
 
