@@ -168,3 +168,9 @@ button:hover {
 button:focus {
 	outline: 0;
 }
+.learn-list {
+	font-size: 18px;
+}
+.learn-list li {
+	font-size: 15px;
+}
